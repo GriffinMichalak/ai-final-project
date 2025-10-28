@@ -12,6 +12,6 @@ Steps:
 6. Slides
 
 AI Algorithms:
-Minimax w/ AlphaBeta Pruning
-Monte Carlo Tree Search
-Reinforcement Learning 
+- Minimax w/ AlphaBeta Pruning
+- Monte Carlo Tree Search
+- Reinforcement Learning 
