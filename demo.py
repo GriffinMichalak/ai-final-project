@@ -3,7 +3,7 @@ Demo script for Connect 4 game with different AI configurations
 """
 
 from connect4 import Connect4Game
-from models import RandomAI
+from models import HeuristicAI, RandomAI
 
 def human_vs_human():
     """Two human players"""
@@ -15,6 +15,7 @@ def human_vs_ai():
     """Human vs Random AI"""
     print("Starting Human vs AI game...")
     ai_player = RandomAI(player_id=2)
+    # ai_player = HeuristicAI(player_id=2)
     game = Connect4Game(player2_ai=ai_player)
     game.run()
 
