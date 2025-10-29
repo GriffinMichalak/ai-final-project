@@ -1,9 +1,13 @@
 import pygame
 import sys
 import numpy as np
-from ai_interface import Connect4AI, RandomAI, HumanPlayer
+from base_ai import Connect4AI
+from simple_ais import RandomAI, HumanPlayer
+from minimax_ai import MinimaxAI
+from mcts_ai import MCTSAI
+from rl_ai import ReinforcementLearningAI
+from heuristic_ai import HeuristicAI
 
-# Initialize Pygame
 pygame.init()
 
 # Constants
@@ -11,7 +15,7 @@ BOARD_WIDTH = 7
 BOARD_HEIGHT = 6
 CELL_SIZE = 80
 WINDOW_WIDTH = BOARD_WIDTH * CELL_SIZE
-WINDOW_HEIGHT = (BOARD_HEIGHT + 1) * CELL_SIZE  # Extra row for dropping area
+WINDOW_HEIGHT = (BOARD_HEIGHT + 1) * CELL_SIZE
 
 # Colors
 BLACK = (0, 0, 0)
