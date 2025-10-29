@@ -16,6 +16,7 @@ AI Algorithms:
 - Reinforcement Learning
 - Simple Heuristic Search
 
-## Directions
-
-For each AI, create a class that implements a get_move() method, as specified in ai_interface.py (see for more details).
+## Useful Commands
+```sh
+find . -name "*.pyc" -delete
+```

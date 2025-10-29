@@ -10,3 +10,6 @@ class HeuristicAI(Connect4AI):
     
     def __init__(self, player_id):
         super().__init__(player_id)
+
+    def get_move(self, board):
+        pass
