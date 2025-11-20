@@ -13,9 +13,7 @@ def human_vs_human():
 
 def human_vs_ai():
     """Human vs Random AI"""
-    print("=======================================")
-    print("We have several AI models. Please select one (1-5): ")
-    print("=======================================")
+    print("Select 1-5: ")
     print("1. Minimax w/ AlphaBeta Pruning")
     print("2. Monte Carlo Tree Search")
     print("3. Reinforcement Learning")
@@ -26,9 +24,8 @@ def human_vs_ai():
     ai_player = None
     
     if choice == "1":
-        # ai_player = MinimaxAI(player_id=2)
-        print("Not yet implemented")
-        exit()
+        ai_player = MinimaxAI(player_id=2)
+        print("Selected: Minimax AI with Alpha-Beta Pruning")
     elif choice == "2":
         # ai_player = mcts_ai(player_id=2)
         print("Not yet implemented")
@@ -58,9 +55,7 @@ def ai_vs_ai():
 
 def main():
     """Main demo function"""
-    print("=======================================")
     print("Connect 4 Demo")
-    print("=======================================")
     print("1. Human vs Human")
     print("2. Human vs AI")
     print("3. AI vs AI")
