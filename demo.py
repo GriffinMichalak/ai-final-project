@@ -48,8 +48,8 @@ def human_vs_ai():
 def ai_vs_ai():
     """Two AI players"""
     print("Starting AI vs AI game...")
-    ai_player1 = RandomAI(player_id=1)
-    ai_player2 = RandomAI(player_id=2)
+    ai_player1 = MinimaxAI(player_id=1)
+    ai_player2 = MinimaxAI(player_id=2)
     game = Connect4Game(player1_ai=ai_player1, player2_ai=ai_player2)
     game.run()
 
