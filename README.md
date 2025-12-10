@@ -16,14 +16,21 @@ AI Algorithms:
 - Reinforcement Learning
 - Simple Heuristic Search
 
-## Useful Commands
+## Installation Instructions
 
-Running Program
+### 1. Create virtual environment
 ```sh
-.venv/bin/python demo.py # if your environment name is .venv
+python3 -m venv .venv # or python -m venv .venv
 ```
-
-Deleting pyc files
+### 2. Activate .venv
 ```sh
-find . -name "*.pyc" -delete
+source .venv/bin/activate
+```
+### 3. Install Requirements
+```sh
+pip install -r requirements.txt
+```
+### 4. Run `demo.py`:
+```sh
+python demo.py
 ```
