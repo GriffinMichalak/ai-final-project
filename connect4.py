@@ -22,23 +22,28 @@ GRAY = (128, 128, 128)
 LIGHT_BLUE = (173, 216, 230)
 
 class Connect4Game:
-    def __init__(self, player1_ai=None, player2_ai=None):
+    def __init__(self, player1_ai=None, player2_ai=None, headless=False):
         self.board = np.zeros((BOARD_HEIGHT, BOARD_WIDTH), dtype=int)
         self.current_player = 1  # 1 for red, 2 for yellow
         self.game_over = False
         self.winner = None
+        self.headless = headless
         
         # AI players (None means human player)
         self.player1_ai = player1_ai
         self.player2_ai = player2_ai
         
-        # Initialize display
-        self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.set_caption("Connect 4")
-        self.clock = pygame.time.Clock()
-        
-        # Font for text
-        self.font = pygame.font.Font(None, 36)
+        # Initialize display only if not headless
+        if not headless:
+            self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+            pygame.display.set_caption("Connect 4")
+            self.clock = pygame.time.Clock()
+            # Font for text
+            self.font = pygame.font.Font(None, 36)
+        else:
+            self.screen = None
+            self.clock = None
+            self.font = None
         
     def is_valid_move(self, col):
         """Check if a move is valid in the given column"""
