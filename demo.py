@@ -2,8 +2,10 @@
 Demo script for Connect 4 game with different AI configurations
 """
 
+import os
 from connect4 import Connect4Game
-from models import HeuristicAI, MinimaxAI, MinimaxABAI, RandomAI, ReinforcementLearningAI, mcts_ai
+from models import HeuristicAI, MinimaxAI, MinimaxABAI, RandomAI, MCTSAI, rl_cnn_ai
+from models.rl_cnn_ai import CNNRLAI
 
 def human_vs_human():
     """Two human players"""
@@ -17,9 +19,9 @@ def human_vs_ai():
     print("0. Random Selection")
     print("1. Minimax (Basic)")
     print("2. Minimax w/ Alpha-Beta Pruning")
-    print("3. Monte Carlo Tree Search")
-    print("4. Reinforcement Learning")
-    print("5. Simple Heuristic Search")
+    print("3. Reinforcement Learning")
+    print("4. Simple Heuristic Search")
+    print("5. Monte Carlo Tree Search")
     print("6. Exit")
     choice = input("\nYour choice (1-6): ").strip()
 
@@ -35,15 +37,20 @@ def human_vs_ai():
         ai_player = MinimaxABAI(player_id=2)
         print("Selected: Minimax AI with Alpha-Beta Pruning")
     elif choice == "3":
-        # ai_player = mcts_ai(player_id=2)
-        print("Not yet implemented")
-        exit()
+        print("\nYou selected Reinforcement Learning model.")
+        filename = choose_cnn_model()
+
+        if filename is None:
+            print("\nReturning to menu\n")
+            return
+        
+        print(f"\nLoading model: {filename}")
+        ai_player = CNNRLAI(player_id=2)
+        ai_player.load_model(filename)
     elif choice == "4":
-        # ai_player = ReinforcementLearningAI(player_id=2)
-        print("Not yet implemented")
-        exit()
-    elif choice == "5":
         ai_player = HeuristicAI(player_id=2)
+    elif choice == "5":
+        ai_player = MCTSAI(player_id=2)
     elif choice == "6":
         print("Goodbye!")
         return
@@ -62,6 +69,28 @@ def ai_vs_ai():
     ai_player2 = MinimaxAI(player_id=2)
     game = Connect4Game(player1_ai=ai_player1, player2_ai=ai_player2)
     game.run()
+
+def choose_cnn_model():
+    """Select a CNN RL model from CNN_models folder"""
+    folder = "CNN_models"
+
+    files = [f for f in os.listdir(folder) if f.endswith(".pt")]
+
+    if not files:
+        print("\nNo CNN RL model files found.")
+        print("Train a CNN model and save with .pt extension.")
+        return None
+    
+    print("\nAvailable CNN RL Models:")
+    print("===================================")
+    for i, file in enumerate(files, start=1):
+        print(f"{i}. {file}")
+
+    while True:
+        choice = input("\nSelect a model number: ").strip()
+        if choice.isdigit() and 1 <= int(choice) <= len(files):
+            return os.path.join(folder, files[int(choice) - 1])
+        print("Invalid choice.")
 
 def main():
     """Main demo function"""
