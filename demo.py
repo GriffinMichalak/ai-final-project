@@ -4,7 +4,7 @@ Demo script for Connect 4 game with different AI configurations
 
 import os
 from connect4 import Connect4Game
-from models import HeuristicAI, MinimaxAI, RandomAI, ReinforcementLearningAI, mcts_ai, rl_cnn_ai
+from models import HeuristicAI, MinimaxAI, RandomAI, mcts_ai, rl_cnn_ai
 from models.rl_cnn_ai import CNNRLAI
 
 def human_vs_human():

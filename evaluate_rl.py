@@ -5,7 +5,6 @@ Runs each model against the RandomAI and prints win/loss/draw statistics.
 import os
 import matplotlib.pyplot as plt
 from connect4 import Connect4Game
-from models.rl_ai import ReinforcementLearningAI
 from models.rl_cnn_ai import CNNRLAI
 from models.simple_ais import RandomAI
 
@@ -78,9 +77,9 @@ def plot_results(results):
     plt.title("RL Model Win Rate Against Random AI (5,000 games each)", fontsize=18, weight="bold")
     plt.ylabel("Win Rate (%)", fontsize=14)
     plt.xlabel("Training Model", fontsize=14)
-    plt.xticks(fontsize=12)
+    plt.xticks(fontsize=10, rotation=45, ha="right")
     plt.yticks(fontsize=12)
-    plt.ylim(0, max(win_rates) + 5)
+    plt.ylim(0, max(win_rates) + 7)
     plt.tight_layout()
     plt.savefig("rl_evaluation_results.png")
 

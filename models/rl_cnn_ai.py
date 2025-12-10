@@ -594,3 +594,5 @@ class CNNRLAI(Connect4AI):
         state_dict = torch.load(path, map_location=self.device)
         self.policy_network.load_state_dict(state_dict)
         self.target_network.load_state_dict(state_dict)
+        print(f"Loaded model weights from {path}")
+        return True

@@ -14,7 +14,7 @@ def plot_training_history(path):
     plt.ylabel("Reward")
     plt.legend()
     plt.grid(True)
-    plt.savefig("reward_plot_10k_heuristic_0.9999.png")
+    plt.savefig("reward_plot_100k_self_0.99999.png")
 
 if __name__ == "__main__":
-    plot_training_history("training_history/training_10000_heuristic_0.9999.npz")
+    plot_training_history("training_history/training_100000_self_0.99999.npz")
