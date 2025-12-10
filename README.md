@@ -131,4 +131,4 @@ The project includes several pre-trained CNN models:
 - **Random-trained models**: Trained against random opponents (100k and 500k iterations)
 - **Heuristic-trained models**: Trained against heuristic AI (100k and 500k iterations)
 - **Self-play models**: Trained through self-play (100k and 500k iterations)
-Model filenames indicate training method and iteration count.
+Model filenames indicate training method and iteration count
